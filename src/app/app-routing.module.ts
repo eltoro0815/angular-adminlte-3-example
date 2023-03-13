@@ -12,6 +12,7 @@ import {ForgotPasswordComponent} from '@modules/forgot-password/forgot-password.
 import {RecoverPasswordComponent} from '@modules/recover-password/recover-password.component';
 import {MainMenuComponent} from '@pages/main-menu/main-menu.component';
 import {SubMenuComponent} from '@pages/main-menu/sub-menu/sub-menu.component';
+import { BookingsComponent } from '@pages/bookings/bookings.component';
 
 const routes: Routes = [
     {
@@ -24,21 +25,27 @@ const routes: Routes = [
                 path: 'profile',
                 component: ProfileComponent
             },
+            // {
+            //     path: 'blank',
+            //     component: BlankComponent
+            // },
+            // {
+            //     path: 'sub-menu-1',
+            //     component: SubMenuComponent
+            // },
+            // {
+            //     path: 'sub-menu-2',
+            //     component: BlankComponent
+            // },
+
             {
-                path: 'blank',
-                component: BlankComponent
-            },
-            {
-                path: 'sub-menu-1',
-                component: SubMenuComponent
-            },
-            {
-                path: 'sub-menu-2',
-                component: BlankComponent
+                path: 'bookings',
+                component: BookingsComponent
             },
             {
                 path: '',
-                component: DashboardComponent
+                component: BookingsComponent,
+
             }
         ]
     },

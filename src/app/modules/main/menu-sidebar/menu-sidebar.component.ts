@@ -38,24 +38,24 @@ export const MENU = [
         path: ['/']
     },
     {
-        name: 'Blank',
+        name: 'Umsätze',
         iconClasses: 'fas fa-file',
-        path: ['/blank']
+        path: ['/bookings']
     },
-    {
-        name: 'Main Menu',
-        iconClasses: 'fas fa-folder',        
-        children: [
-            {
-                name: 'Sub Menu',
-                iconClasses: 'far fa-address-book',
-                path: ['/sub-menu-1']
-            },
-            {
-                name: 'Blank',
-                iconClasses: 'fas fa-file',
-                path: ['/sub-menu-2']
-            }
-        ]
-    }
+    // {
+    //     name: 'Main Menu',
+    //     iconClasses: 'fas fa-folder',
+    //     children: [
+    //         {
+    //             name: 'Sub Menu',
+    //             iconClasses: 'far fa-address-book',
+    //             path: ['/sub-menu-1']
+    //         },
+    //         {
+    //             name: 'Blank',
+    //             iconClasses: 'fas fa-file',
+    //             path: ['/sub-menu-2']
+    //         }
+    //     ]
+    // }
 ];
