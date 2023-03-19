@@ -43,6 +43,12 @@ const routes: Routes = [
                 component: BookingsComponent
             },
             {
+                path: 'bookings/add',
+                component: BookingsComponent
+            },
+
+
+            {
                 path: '',
                 component: BookingsComponent,
 

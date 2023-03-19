@@ -1,33 +1,35 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { BookingService } from '@services/booking.service';
+
 @Component({
-    selector: 'app-bookings',
-    templateUrl: './bookings.component.html',
-    styleUrls: ['./bookings.component.scss']
+  selector: 'app-bookings',
+  templateUrl: './bookings.component.html',
+  styleUrls: ['./bookings.component.scss']
 })
 export class BookingsComponent {
-    data: any;
-    sum: any;
-    constructor(private http: HttpClient) {
-        this.http.get('http://backend.ddev.site/api/bookings').subscribe({
-            next: (response) => {
-                this.data = response['data'];
 
-                console.log(this.data);
+  bookings: any;
+  sum: any = 0;
 
-                this.sum = this.data.reduce(
-                    (acc, element) =>
-                        acc + parseFloat(element.amount)
-                    ,
-                0
-                );
-    },
-    error: (e) => {
-                console.error(e);
-},
-        });
+  constructor(private bookingService: BookingService) {
+    this.showBookings();
+  }
 
 
 
-    }
+  showBookings() {
+    this.bookings = this.bookingService.listBookings().subscribe(
+      response => {
+        this.bookings = response['data'];
+
+        console.log(this.bookings);
+
+        this.sum = this.bookings.reduce(
+            (acc, element) =>
+                acc + parseFloat(element.amount)
+            ,
+        0);
+      }
+    );
+  }
 }

@@ -18,6 +18,11 @@
 
 <!-- Main content -->
 <section class="content">
+
+
+    <button class="btn btn-primary" routerLink="/add">Buchung hinzufügen</button>
+
+
     <!-- Default box -->
     <div class="container-fluid">
         <div class="card">
@@ -32,14 +37,18 @@
 
             <!-- /.card-body -->
         </div>
-        <div class="card" *ngFor="let mydata of data">
+
+        <!-- For Loop -->
+        <div class="card" *ngFor="let booking of bookings">
             <div class="card-header">
                 <h3 class="card-title">
-                    {{ mydata.created_at | date: 'dd.MM.YYYY HH:mm' }}
+                    <i class="ion ion-android-clipboard"></i> {{ booking.created_at | date: 'dd.MM.YYYY' }}
+                    <i class="ion ion-android-time ml-3"></i> {{ booking.created_at | date: 'HH:mm' }}
+                    <button class="btn btn-info">Ändern</button><button class="btn btn-danger">Löschen</button>
                 </h3>
             </div>
             <div class="card-body">
-                <span [ngClass]="{'negative':mydata.amount<0, 'positive': mydata.amount>0}">{{ mydata.amount | eur }}</span>
+                <span [ngClass]="{'negative':booking.amount<0, 'positive': booking.amount>0}">{{ booking.amount | eur }}</span>
             </div>
             <!-- /.card-body -->
         </div>

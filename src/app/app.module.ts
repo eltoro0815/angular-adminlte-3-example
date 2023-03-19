@@ -40,6 +40,7 @@ import { BookingsComponent } from './pages/bookings/bookings.component';
 
 import { EurPipe } from './pipes/eur.pipe';
 
+
 defineCustomElements();
 registerLocaleData(localeDe, 'de');
 
