@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { BookingService } from '@services/booking.service';
-import { Observable } from 'rxjs';
+import { Observable, pipe, reduce, scan } from 'rxjs';
 
 
 interface IBooking {
@@ -20,12 +20,14 @@ interface IBooking {
 export class BookingsComponent {
 
     //   bookings: any;
-    sum: any = 0;
+    sum: number = 0;
     bookings$: Observable<IBooking[]> = this.bookingService.getBookings();
 
 
     constructor(private bookingService: BookingService) {
-        this.bookings$.subscribe(console.log);
+        this.bookings$.subscribe((data) =>
+            this.sum = data.reduce((acc, booking) => acc + parseFloat(booking.amount), 0)
+        );
     }
 
 
@@ -33,9 +35,6 @@ export class BookingsComponent {
 
 
     //   showBookings() {
-
-
-
     //     this.bookings = this.bookingService.getBookings().subscribe(
     //       response => {
     //         this.bookings = response['data'];
