@@ -13,6 +13,7 @@ import {RecoverPasswordComponent} from '@modules/recover-password/recover-passwo
 import {MainMenuComponent} from '@pages/main-menu/main-menu.component';
 import {SubMenuComponent} from '@pages/main-menu/sub-menu/sub-menu.component';
 import { BookingsComponent } from '@pages/bookings/bookings.component';
+import { AddBookingComponent } from '@pages/bookings/add-booking/add-booking.component';
 
 const routes: Routes = [
     {
@@ -44,7 +45,7 @@ const routes: Routes = [
             },
             {
                 path: 'bookings/add',
-                component: BookingsComponent
+                component: AddBookingComponent
             },
 
 

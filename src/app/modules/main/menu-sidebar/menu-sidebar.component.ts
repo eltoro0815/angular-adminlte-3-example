@@ -38,7 +38,7 @@ export const MENU = [
     //     path: ['/']
     // },
     {
-        name: 'Umsätze',
+        name: 'Buchungen',
         iconClasses: 'fas fa-file',
         path: ['/']
     },
