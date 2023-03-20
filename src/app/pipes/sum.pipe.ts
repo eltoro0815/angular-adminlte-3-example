@@ -1,7 +1,4 @@
-import { NgModule, Pipe, PipeTransform } from "@angular/core";
-import { reduce } from "rxjs";
-import { Booking } from "@/shared/booking.model";
-import { BookingsComponent } from "@pages/bookings/bookings.component";
+import { Pipe, PipeTransform } from "@angular/core";
 
 @Pipe({
   name: "sum"

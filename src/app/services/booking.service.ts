@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
-import { from, Observable } from 'rxjs';
+import { catchError, from, Observable, of, throwError } from 'rxjs';
 
-import { Booking } from '@/shared/booking.model';
+import { Booking } from '@/models/booking.model';
+import { _ACTION_TYPE_UNIQUENESS_CHECK } from '@ngrx/store/src/tokens';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +15,15 @@ export class BookingService {
   constructor(private http: HttpClient) { }
 
   getBookings(): Observable<Booking[]> {
+    const url = this.apiRoot + '/bookings';
+
     console.log('BookingService.getBookings() is called.');
-    return this.http.get<Booking[]>(this.apiRoot + '/bookings');
+
+    return this.http.get<Booking[]>(this.apiRoot + '/bookings').pipe(
+      catchError( _ => {
+        return throwError(() => new Error('Error in BookingService HTTP GET Request to: ' + url));
+      })
+    );
   }
 
   /**
@@ -26,8 +34,22 @@ export class BookingService {
   //   const apiCall = fetch(this.apiRoot + '/bookings')
   //     .then(response => response.json())
   //     .then(responseJson => {
-  //       return responseJson.data as Booking[]
+  //       // return responseJson.data as Booking[]
+  //       return responseJson as Booking[]
 
+  //     })
+  //     .catch((error) => {
+  //       return [{
+  //         id: -1,
+  //         amount: '1',
+  //         created_at: '',
+  //         updated_at: ''
+  //       }, {
+  //         id: -1,
+  //         amount: '2',
+  //         created_at: '',
+  //         updated_at: ''
+  //       }];
   //     });
 
   //   return from(apiCall);

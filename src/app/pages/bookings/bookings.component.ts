@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { BookingService } from '@services/booking.service';
 import { Observable, pipe, reduce, scan } from 'rxjs';
 
-import { Booking } from '@/shared/booking.model';
+import { Booking } from '@/models/booking.model';
 
 
 @Component({
