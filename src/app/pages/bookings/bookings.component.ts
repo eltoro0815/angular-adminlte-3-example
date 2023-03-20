@@ -2,14 +2,7 @@ import { Component } from '@angular/core';
 import { BookingService } from '@services/booking.service';
 import { Observable, pipe, reduce, scan } from 'rxjs';
 
-
-interface IBooking {
-    id: number,
-    amount: string,
-    created_at: string,
-    updated_at: string
-}
-
+import { Booking } from '@/shared/booking.model';
 
 
 @Component({
@@ -21,7 +14,7 @@ export class BookingsComponent {
 
     //   bookings: any;
     sum: number = 0;
-    bookings$: Observable<IBooking[]> = this.bookingService.getBookings();
+    bookings$: Observable<Booking[]> = this.bookingService.getBookings();
 
 
     constructor(private bookingService: BookingService) {
