@@ -1,6 +1,6 @@
 
 import { Pipe, PipeTransform } from '@angular/core';
-import { formatCurrency, getCurrencySymbol } from '@angular/common';
+import { formatCurrency } from '@angular/common';
 
 @Pipe({ name: 'eur' })
 export class EurPipe implements PipeTransform {

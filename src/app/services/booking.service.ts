@@ -14,6 +14,7 @@ export class BookingService {
   constructor(private http: HttpClient) { }
 
   getBookings(): Observable<Booking[]> {
+    console.log('BookingService.getBookings() is called.');
     return this.http.get<Booking[]>(this.apiRoot + '/bookings');
   }
 

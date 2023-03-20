@@ -39,6 +39,8 @@ import { SidebarSearchComponent } from './components/sidebar-search/sidebar-sear
 import { BookingsComponent } from './pages/bookings/bookings.component';
 
 import { EurPipe } from './pipes/eur.pipe';
+import { SumPipe } from './pipes/sum.pipe';
+
 import { AddBookingComponent } from './pages/bookings/add-booking/add-booking.component';
 
 
@@ -70,6 +72,7 @@ registerLocaleData(localeDe, 'de');
         SidebarSearchComponent,
         BookingsComponent,
         EurPipe,
+        SumPipe,
         AddBookingComponent
     ],
     imports: [

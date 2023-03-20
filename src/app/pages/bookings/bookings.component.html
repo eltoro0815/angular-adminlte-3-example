@@ -38,10 +38,16 @@
                 <div class="card-header">
                     <h3 class="card-title">
                         Kontostand:
-
-                        <span [ngClass]="{negative: sum < 0, positive: sum > 0}">
-                        {{ sum | eur }}
-                    </span>
+                        <ng-container *ngIf="bookings | sum: 'amount' as sum">
+                            <span
+                                [ngClass]="{
+                                    negative: sum < 0,
+                                    positive: sum > 0
+                                }"
+                            >
+                                {{ sum | eur }}
+                            </span>
+                        </ng-container>
                     </h3>
                 </div>
 
@@ -50,6 +56,7 @@
 
             <!-- For Loop -->
             <div class="card" *ngFor="let booking of bookings">
+                <!-- bookings is from from Container with async Pipe above -->
                 <div class="card-header">
                     <h3 class="card-title">
                         <i class="ion ion-android-clipboard"></i>
