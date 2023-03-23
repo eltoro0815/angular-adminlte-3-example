@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
-import { catchError, from, Observable, of, throwError } from 'rxjs';
+
 
 import { Booking } from '@/models/booking.model';
+import { catchError, Observable, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
