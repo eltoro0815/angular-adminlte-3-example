@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http'
 import { catchError, from, Observable, of, throwError } from 'rxjs';
 
 import { Booking } from '@/models/booking.model';
-import { _ACTION_TYPE_UNIQUENESS_CHECK } from '@ngrx/store/src/tokens';
 
 @Injectable({
   providedIn: 'root'
